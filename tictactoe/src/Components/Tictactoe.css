@@ -1,0 +1,15 @@
+table{
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+body{
+    text-align: center;
+}
+td{
+    height: 66.67px;
+    width: 66.67px;
+    text-align: center;
+    font-size: 30px;
+}
