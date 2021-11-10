@@ -8,8 +8,18 @@ body{
     text-align: center;
 }
 td{
+    /* pointer-events: none; */
     height: 66.67px;
     width: 66.67px;
     text-align: center;
     font-size: 30px;
+}
+button{
+    height: 30px;
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: rgb(175, 240, 197);
+}
+button:hover{
+    cursor: pointer;
 }

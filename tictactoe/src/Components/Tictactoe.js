@@ -10,7 +10,20 @@ function Tictactoe() {
 		[' ', ' ', ' '],
 		[' ', ' ', ' ']
 	]);
+	function createNewGame() {
+		let newBoard = [
+			[' ', ' ', ' '],
+			[' ', ' ', ' '],
+			[' ', ' ', ' ']
+		];
+		setBoard(newBoard);
+		setTurn(1);
+		setOver(false);
+		setWinner(-1);
+	}
 	function handleClick(r, c){
+		if(board[r][c] !== ' ')
+			return;
 		let copy = [...board];
 		if(turn === 1){
 			copy[r][c] = '#';
@@ -57,6 +70,17 @@ function Tictactoe() {
         }
 		setOver(true);
 	}
+	function getTurn() {
+		if(over === true){
+			return "";
+		}
+		if(turn === 1){
+			return "Player 1 turn";
+		}
+		if(turn === 2){
+			return "Player 2 turn";
+		}
+	}
 	function getResult() {
 		let string = "";
 		if(over === true){
@@ -74,7 +98,8 @@ function Tictactoe() {
     return (
         <div>
             <h1>Welcome to Tic-Tac-Toe</h1>
-            <table>
+			<button onClick={createNewGame}>Start New Game</button>
+            <table style={over===true ? {pointerEvents:"none"} : null}>
                 <tbody>
                     <tr>
                         <td onClick={() => handleClick(0,0)}>{board[0][0]}</td>
@@ -93,7 +118,7 @@ function Tictactoe() {
                     </tr>
                 </tbody>
             </table>
-			<h3>{turn === 1? "Player 1 " : "Player 2"} turn</h3>
+			<h3>{getTurn()}</h3>
 			<h3>{getResult()}</h3>
         </div>
     )
